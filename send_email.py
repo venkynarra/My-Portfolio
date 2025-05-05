@@ -1,24 +1,16 @@
-import  smtplib
+import smtplib
 import ssl
 
-from Tools.demo.mcast import receiver
+def send_email(message):
+    host = "smtp.gmail.com"
+    port = 465
 
-from pages.Contact_Us import message
+    username = "venkateshnarra368@gmail.com"
+    password = "qesybrwxgcpuznii"  # Consider using environment variables here
+    receiver = "venkateshnarra368@gmail.com"
 
-host = "smtp.gmail.com"
-port = 465
-username = "venkateshnarra368@gmail.com"
-password = "qkuh gtes tbyz vvcu"
+    context = ssl.create_default_context()
 
-receiver = "venkateshnarra368@gmail.com"
-
-context = ssl.create_default_context()
-message = """\
-Subject = Hi!
-Hi, How are you
-Bye!
-"""
-
-with smtplib.SMTP_SSL(host, port, context=context) as server:
-    server.login(username, password)
-    server.sendmail(username, receiver, message)
+    with smtplib.SMTP_SSL(host, port, context=context) as server:
+        server.login(username, password)
+        server.sendmail(username, receiver, message)
