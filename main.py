@@ -1,7 +1,7 @@
 import streamlit as st
-
+import pandas # using oands to read CSV data
 st.set_page_config(layout="wide")
-col1, col2, col3 = st.columns(3) #opening colums for to fit in the web page
+col1, col2,  = st.columns(2) #opening colums for to fit in the web page
 with col1:
     st.image("images/ss_myphoto.png")
 with col2:
@@ -18,3 +18,16 @@ content2 = """
     below you can find some apps. pls check it 
     """
 st.write(content2)
+
+col3, col4 = st.columns(2)
+
+df = pandas.read_csv("data.csv", sep=";")
+
+with col3:
+    for index, row in df[0:10].iterrows():
+        st.header(row["title"])
+
+with col4:
+    for index, row in df[10:].iterrows():
+        st.header(row["title"])
+
