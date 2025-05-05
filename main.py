@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.set_page_config(layout="wide")
-col1, col2, = st.columns(2) #opening colums for to fit in the web page
+col1, col2, col3 = st.columns(3) #opening colums for to fit in the web page
 with col1:
     st.image("images/ss_myphoto.png")
 with col2:
@@ -14,3 +14,7 @@ Outside of tech, I’m big on staying active — I enjoy going to the gym regula
 
     """
     st.info(content)
+content2 = """
+    below you can find some apps. pls check it 
+    """
+st.write(content2)
